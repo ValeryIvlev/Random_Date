@@ -3,19 +3,19 @@ package org.zayac;
 
 import org.junit.jupiter.api.Test;
 
-import static pages.randomComponents.RandomGender.selectGender;
-import static pages.randomComponents.RandomFakerDate.*;
-import static pages.randomComponents.RandomHobbies.selectHobbies;
-import static pages.randomComponents.RandomMonth.selectMonth;
-import static pages.randomComponents.RandomSubjects.selectSubjects;
+import static pages.randomData.RandomGender.selectGender;
+import static pages.randomData.RandomFakerDate.*;
+import static pages.randomData.RandomHobbies.selectHobbies;
+import static pages.randomData.RandomMonth.selectMonth;
+import static pages.randomData.RandomSubjects.selectSubjects;
 
 
 public class TestForm extends TestBase {
 
-    String State = "NCR";
-    String City = "Delhi";
+    String state = "NCR";
+    String city = "Delhi";
     String File = "src/test/resources/File1.png";
-    String Picture = "File1.png";
+    String picture = "File1.png";
 
 
 
@@ -34,8 +34,8 @@ public class TestForm extends TestBase {
                 .uploadPicture(File)
                 .setCurrentAddress(currentAddress)
                 .setBirthDate(day, selectMonth, year)
-                .setState(State)
-                .setCity(City);
+                .setState(state)
+                .setCity(city);
 
 
         registrationPage.verifyResultsModalAppears()
@@ -44,9 +44,9 @@ public class TestForm extends TestBase {
                 .verifyResult("Gender", selectGender)
                 .verifyResult("Date of Birth", day+" "+selectMonth+","+year)
                 .verifyResult("Subjects", selectSubjects)
-                .verifyResult("Picture", Picture)
+                .verifyResult("Picture", picture)
                 .verifyResult("Address", currentAddress)
-                .verifyResult("State and City", State+" "+City);
+                .verifyResult("State and City", state+" "+city);
 
 
     }

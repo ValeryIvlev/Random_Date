@@ -1,8 +1,7 @@
-package pages.randomComponents;
+package pages.randomData;
 
 import com.github.javafaker.Faker;
 
-import java.util.Date;
 import java.util.Locale;
 
 public class RandomFakerDate {
@@ -13,7 +12,7 @@ public class RandomFakerDate {
     public static String userEmail = fakerUS.internet().emailAddress();
     public static String userNumber = fakerRU.phoneNumber().subscriberNumber(10);
     public static String currentAddress = fakerUS.address().fullAddress();
-    public static String day = String.valueOf(fakerUS.number().numberBetween(1,30));
+    public static String day = String.format("%02d", fakerUS.number().numberBetween(1,28));
     public static String year = String.valueOf(fakerUS.number().numberBetween(1965,2012));
 
 }

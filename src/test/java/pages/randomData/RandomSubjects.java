@@ -1,4 +1,4 @@
-package pages.randomComponents;
+package pages.randomData;
 
 import java.util.Random;
 
