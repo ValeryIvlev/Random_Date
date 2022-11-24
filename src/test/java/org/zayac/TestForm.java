@@ -3,38 +3,50 @@ package org.zayac;
 
 import org.junit.jupiter.api.Test;
 
+import static pages.randomComponents.RandomGender.selectGender;
+import static pages.randomComponents.RandomFakerDate.*;
+import static pages.randomComponents.RandomHobbies.selectHobbies;
+import static pages.randomComponents.RandomMonth.selectMonth;
+import static pages.randomComponents.RandomSubjects.selectSubjects;
+
 
 public class TestForm extends TestBase {
+
+    String State = "NCR";
+    String City = "Delhi";
+    String File = "src/test/resources/File1.png";
+    String Picture = "File1.png";
+
 
 
     @Test
     void testFromV1() {
 
+
         registrationPage.openPage()
-                .setFirstName("Ivan")
-                .setLastName("Ivanov")
-                .setLastName("Ivanov")
-                .setEmail("Mail@mail.ru")
-                .setGender("Male")
-                .setNumber("7999111123")
-                .setSubjects("Economics")
-                .setHobbies("Sports")
-                .uploadPicture("src/test/resources/File1.png")
-                .setCurrentAddress("Subject one or no one:)")
-                .setBirthDate("30", "July", "1993")
-                .setState("NCR")
-                .setCity("Delhi");
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setEmail(userEmail)
+                .setGender(selectGender)
+                .setNumber(userNumber)
+                .setSubjects(selectSubjects)
+                .setHobbies(selectHobbies)
+                .uploadPicture(File)
+                .setCurrentAddress(currentAddress)
+                .setBirthDate(day, selectMonth, year)
+                .setState(State)
+                .setCity(City);
 
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name", "Ivan Ivanov")
-                .verifyResult("Student Email", "Mail@mail.ru")
-                .verifyResult("Gender", "Male")
-                .verifyResult("Date of Birth", "30 July,1993")
-                .verifyResult("Subjects", "Economics")
-                .verifyResult("Picture", "File1.png")
-                .verifyResult("Address", "Subject one or no one:)")
-                .verifyResult("State and City", "NCR Delhi");
+                .verifyResult("Student Name", firstName+" "+lastName)
+                .verifyResult("Student Email", userEmail)
+                .verifyResult("Gender", selectGender)
+                .verifyResult("Date of Birth", day+" "+selectMonth+","+year)
+                .verifyResult("Subjects", selectSubjects)
+                .verifyResult("Picture", Picture)
+                .verifyResult("Address", currentAddress)
+                .verifyResult("State and City", State+" "+City);
 
 
     }
