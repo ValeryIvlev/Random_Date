@@ -14,5 +14,4 @@ public class RandomFakerDate {
     public static String currentAddress = fakerUS.address().fullAddress();
     public static String day = String.format("%02d", fakerUS.number().numberBetween(1,28));
     public static String year = String.valueOf(fakerUS.number().numberBetween(1965,2012));
-
 }
