@@ -7,5 +7,4 @@ public class RandomMonth {
     public static Random random = new Random();
     public static int select = random.nextInt(Month.length);
     public static String selectMonth = Month[select];
-
 }
