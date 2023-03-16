@@ -17,12 +17,8 @@ public class TestForm extends TestBase {
     String File = "src/test/resources/File1.png";
     String picture = "File1.png";
 
-
-
     @Test
     void testFromV1() {
-
-
         registrationPage.openPage()
                 .setFirstName(firstName)
                 .setLastName(lastName)
@@ -37,7 +33,6 @@ public class TestForm extends TestBase {
                 .setState(state)
                 .setCity(city);
 
-
         registrationPage.verifyResultsModalAppears()
                 .verifyResult("Student Name", firstName+" "+lastName)
                 .verifyResult("Student Email", userEmail)
@@ -47,8 +42,5 @@ public class TestForm extends TestBase {
                 .verifyResult("Picture", picture)
                 .verifyResult("Address", currentAddress)
                 .verifyResult("State and City", state+" "+city);
-
-
     }
-
 }
