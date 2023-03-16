@@ -8,6 +8,4 @@ public class RandomSubjects {
         public static Random random = new Random();
         public static int select = random.nextInt(Subjects.length);
         public static String selectSubjects = Subjects[select];
-
     }
-
